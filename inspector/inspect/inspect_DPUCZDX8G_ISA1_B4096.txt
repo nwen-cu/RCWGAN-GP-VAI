@@ -51,16 +51,525 @@ DPUCZDX8G_ISA1_B4096
 inspection summary:
 ================================================================================================================================================================
 The operators assigned to the CPU are as follows:
-node name                                                                      op Type           hardware constraints
------------------------------------------------------------------------------  ----------------  ------------------------------------------
-Generator::Generator/Sequential[net]/ResBlock[2]/LeakyReLU[leakyrelu]/ret.29   nndct_leaky_relu  nndct_leaky_relu can't be assigned to DPU.
-Generator::Generator/Sequential[net]/ResBlock[5]/LeakyReLU[leakyrelu]/ret.43   nndct_leaky_relu  nndct_leaky_relu can't be assigned to DPU.
-Generator::Generator/Sequential[net]/ResBlock[8]/LeakyReLU[leakyrelu]/ret.57   nndct_leaky_relu  nndct_leaky_relu can't be assigned to DPU.
-Generator::Generator/Sequential[net]/ResBlock[11]/LeakyReLU[leakyrelu]/ret.71  nndct_leaky_relu  nndct_leaky_relu can't be assigned to DPU.
-Generator::Generator/Sequential[net]/ResBlock[14]/LeakyReLU[leakyrelu]/ret.85  nndct_leaky_relu  nndct_leaky_relu can't be assigned to DPU.
-Generator::Generator/Sequential[net]/Tanh[16]/ret                              nndct_tanh        nndct_tanh can't be assigned to DPU.
+node name                 op Type                hardware constraints
+------------------------  ---------------------  -------------------------------------------------------------------------------------------------------------------------------------------
+Generator::2689           nndct_const            All the children nodes are assigned to CPU.
+Generator::Generator/ret  nndct_elementwise_sub  xir::Op{name = Generator__Generator_ret, type = eltwise-fix} has been assigned to CPU: [DPUCZDX8G_ISA1_B4096 does not support eltwise SUB].
 ================================================================================================================================================================
 graph name: Generator
+================================================================================================================================================================
+node name: Generator::2687
+input nodes: []
+output nodes: ['Generator::Generator/ret.91']
+op type: nndct_const
+outputs shape: [4, 256, 256, 1]
+op attributes:
+  data: [[[[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  ...
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]]
+
+
+ [[[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  ...
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]]
+
+
+ [[[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  ...
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]]
+
+
+ [[[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  ...
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]
+
+  [[2.]
+   [2.]
+   [2.]
+   ...
+   [2.]
+   [2.]
+   [2.]]]]
+assigned device: dpu
+source range:
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
+/tmp/ipykernel_9656/2619939057.py(45): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(118): wrapper
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(127): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1194): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(1184): _get_trace_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/utils/jit_utils.py(403): trace_and_get_graph_from_model
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(130): _trace_graph_from_model
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(75): _get_fw_graph_from_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(104): build_torch_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/parser.py(78): __call__
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/qproc/utils.py(97): parse_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/qproc/utils.py(248): prepare_quantizable_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
+/tmp/ipykernel_9656/1970892623.py(1): <module>
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/async_helpers.py(129): _pseudo_sync_runner
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3064): _run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3009): run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/zmqshell.py(549): run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/ipkernel.py(426): do_execute
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(758): execute_request
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(418): dispatch_shell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(513): process_one
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(524): dispatch_queue
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/events.py(81): _run
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/base_events.py(1859): _run_once
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/base_events.py(570): run_forever
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/tornado/platform/asyncio.py(195): start
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelapp.py(737): start
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/traitlets/config/application.py(1053): launch_instance
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel_launcher.py(17): <module>
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(87): _run_code
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(194): _run_module_as_main
+
+================================================================================================================================================================
+node name: Generator::2689
+input nodes: []
+output nodes: ['Generator::Generator/ret']
+op type: nndct_const
+outputs shape: [4, 256, 256, 1]
+op attributes:
+  data: [[[[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  ...
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]]
+
+
+ [[[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  ...
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]]
+
+
+ [[[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  ...
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]]
+
+
+ [[[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  ...
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]
+
+  [[1.]
+   [1.]
+   [1.]
+   ...
+   [1.]
+   [1.]
+   [1.]]]]
+assigned device: cpu
+hardware constraints: All the children nodes are assigned to CPU.
+source range:
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
+/tmp/ipykernel_9656/2619939057.py(45): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(118): wrapper
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(127): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1194): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(1184): _get_trace_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/utils/jit_utils.py(403): trace_and_get_graph_from_model
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(130): _trace_graph_from_model
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(75): _get_fw_graph_from_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(104): build_torch_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/parser.py(78): __call__
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/qproc/utils.py(97): parse_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/qproc/utils.py(248): prepare_quantizable_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
+/tmp/ipykernel_9656/1970892623.py(1): <module>
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/async_helpers.py(129): _pseudo_sync_runner
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3064): _run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3009): run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/zmqshell.py(549): run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/ipkernel.py(426): do_execute
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(758): execute_request
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(418): dispatch_shell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(513): process_one
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(524): dispatch_queue
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/events.py(81): _run
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/base_events.py(1859): _run_once
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/base_events.py(570): run_forever
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/tornado/platform/asyncio.py(195): start
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelapp.py(737): start
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/traitlets/config/application.py(1053): launch_instance
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel_launcher.py(17): <module>
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(87): _run_code
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(194): _run_module_as_main
+
 ================================================================================================================================================================
 node name: Generator::input_0
 input nodes: []
@@ -94,7 +603,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/linear.py(114): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(44): forward
+/tmp/ipykernel_9656/2619939057.py(39): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -114,7 +623,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -149,7 +658,7 @@ assigned device: dpu
 source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
-/tmp/ipykernel_8239/4152959341.py(44): forward
+/tmp/ipykernel_9656/2619939057.py(39): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -169,7 +678,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -209,7 +718,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/linear.py(114): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(45): forward
+/tmp/ipykernel_9656/2619939057.py(40): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -229,7 +738,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -264,7 +773,7 @@ assigned device: dpu
 source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
-/tmp/ipykernel_8239/4152959341.py(45): forward
+/tmp/ipykernel_9656/2619939057.py(40): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -284,7 +793,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -319,7 +828,7 @@ assigned device: dpu
 source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
-/tmp/ipykernel_8239/4152959341.py(47): forward
+/tmp/ipykernel_9656/2619939057.py(42): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -339,7 +848,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -388,7 +897,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -408,7 +917,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -452,7 +961,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -472,7 +981,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -522,13 +1031,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -548,7 +1057,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -592,13 +1101,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -618,7 +1127,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -668,13 +1177,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -694,7 +1203,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -720,7 +1229,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[2]/ret.27
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[2]/ret.25', 'Generator::Generator/Sequential[net]/LeakyReLU[1]/ret.19']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/LeakyReLU[leakyrelu]/ret.29']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/ret.29']
 op type: nndct_elemwise_add
 outputs shape: [4, 16, 16, 64]
 op attributes:
@@ -728,13 +1237,13 @@ assigned device: dpu
 source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -754,7 +1263,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -778,31 +1287,29 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(194): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[2]/LeakyReLU[leakyrelu]/ret.29
+node name: Generator::Generator/Sequential[net]/ResBlock[2]/ret.29
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/ret.27']
 output nodes: ['Generator::Generator/Sequential[net]/ConvTranspose2d[3]/ret.31']
-op type: nndct_leaky_relu
+op type: nndct_relu
 outputs shape: [4, 16, 16, 64]
 op attributes:
-  alpha: 0.1015625
-assigned device: cpu
-hardware constraints: nndct_leaky_relu can't be assigned to DPU.
+assigned device: dpu
 source range:
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1632): leaky_relu
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1457): relu
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/overrides.py(1534): handle_torch_function
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1628): leaky_relu
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(775): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1453): relu
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(102): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1194): _call_impl
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -822,7 +1329,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -847,7 +1354,7 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ConvTranspose2d[3]/ret.31
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/LeakyReLU[leakyrelu]/ret.29']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/ret.29']
 output nodes: ['Generator::Generator/Sequential[net]/LeakyReLU[4]/ret.33']
 op type: nndct_conv_transpose_2d
 outputs shape: [4, 32, 32, 128]
@@ -871,7 +1378,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -891,7 +1398,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -935,7 +1442,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -955,7 +1462,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1005,13 +1512,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1031,7 +1538,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1075,13 +1582,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1101,7 +1608,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1151,13 +1658,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1177,7 +1684,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1203,7 +1710,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[5]/ret.41
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[2]/ret.39', 'Generator::Generator/Sequential[net]/LeakyReLU[4]/ret.33']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/LeakyReLU[leakyrelu]/ret.43']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/ret.43']
 op type: nndct_elemwise_add
 outputs shape: [4, 32, 32, 128]
 op attributes:
@@ -1211,13 +1718,13 @@ assigned device: dpu
 source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1237,7 +1744,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1261,31 +1768,29 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(194): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[5]/LeakyReLU[leakyrelu]/ret.43
+node name: Generator::Generator/Sequential[net]/ResBlock[5]/ret.43
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/ret.41']
 output nodes: ['Generator::Generator/Sequential[net]/ConvTranspose2d[6]/ret.45']
-op type: nndct_leaky_relu
+op type: nndct_relu
 outputs shape: [4, 32, 32, 128]
 op attributes:
-  alpha: 0.1015625
-assigned device: cpu
-hardware constraints: nndct_leaky_relu can't be assigned to DPU.
+assigned device: dpu
 source range:
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1632): leaky_relu
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1457): relu
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/overrides.py(1534): handle_torch_function
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1628): leaky_relu
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(775): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1453): relu
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(102): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1194): _call_impl
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1305,7 +1810,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1330,7 +1835,7 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ConvTranspose2d[6]/ret.45
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/LeakyReLU[leakyrelu]/ret.43']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/ret.43']
 output nodes: ['Generator::Generator/Sequential[net]/LeakyReLU[7]/ret.47']
 op type: nndct_conv_transpose_2d
 outputs shape: [4, 64, 64, 256]
@@ -1354,7 +1859,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1374,7 +1879,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1418,7 +1923,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1438,7 +1943,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1488,13 +1993,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1514,7 +2019,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1558,13 +2063,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1584,7 +2089,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1634,13 +2139,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1660,7 +2165,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1686,7 +2191,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[8]/ret.55
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[2]/ret.53', 'Generator::Generator/Sequential[net]/LeakyReLU[7]/ret.47']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/LeakyReLU[leakyrelu]/ret.57']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/ret.57']
 op type: nndct_elemwise_add
 outputs shape: [4, 64, 64, 256]
 op attributes:
@@ -1694,13 +2199,13 @@ assigned device: dpu
 source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1720,7 +2225,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1744,31 +2249,29 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(194): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[8]/LeakyReLU[leakyrelu]/ret.57
+node name: Generator::Generator/Sequential[net]/ResBlock[8]/ret.57
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/ret.55']
 output nodes: ['Generator::Generator/Sequential[net]/ConvTranspose2d[9]/ret.59']
-op type: nndct_leaky_relu
+op type: nndct_relu
 outputs shape: [4, 64, 64, 256]
 op attributes:
-  alpha: 0.1015625
-assigned device: cpu
-hardware constraints: nndct_leaky_relu can't be assigned to DPU.
+assigned device: dpu
 source range:
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1632): leaky_relu
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1457): relu
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/overrides.py(1534): handle_torch_function
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1628): leaky_relu
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(775): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1453): relu
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(102): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1194): _call_impl
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1788,7 +2291,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1813,7 +2316,7 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ConvTranspose2d[9]/ret.59
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/LeakyReLU[leakyrelu]/ret.57']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/ret.57']
 output nodes: ['Generator::Generator/Sequential[net]/LeakyReLU[10]/ret.61']
 op type: nndct_conv_transpose_2d
 outputs shape: [4, 128, 128, 128]
@@ -1837,7 +2340,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1857,7 +2360,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1901,7 +2404,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1921,7 +2424,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -1971,13 +2474,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -1997,7 +2500,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2041,13 +2544,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2067,7 +2570,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2117,13 +2620,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2143,7 +2646,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2169,7 +2672,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[11]/ret.69
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[2]/ret.67', 'Generator::Generator/Sequential[net]/LeakyReLU[10]/ret.61']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/LeakyReLU[leakyrelu]/ret.71']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/ret.71']
 op type: nndct_elemwise_add
 outputs shape: [4, 128, 128, 128]
 op attributes:
@@ -2177,13 +2680,13 @@ assigned device: dpu
 source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2203,7 +2706,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2227,31 +2730,29 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(194): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[11]/LeakyReLU[leakyrelu]/ret.71
+node name: Generator::Generator/Sequential[net]/ResBlock[11]/ret.71
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/ret.69']
 output nodes: ['Generator::Generator/Sequential[net]/ConvTranspose2d[12]/ret.73']
-op type: nndct_leaky_relu
+op type: nndct_relu
 outputs shape: [4, 128, 128, 128]
 op attributes:
-  alpha: 0.1015625
-assigned device: cpu
-hardware constraints: nndct_leaky_relu can't be assigned to DPU.
+assigned device: dpu
 source range:
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1632): leaky_relu
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1457): relu
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/overrides.py(1534): handle_torch_function
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1628): leaky_relu
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(775): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1453): relu
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(102): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1194): _call_impl
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2271,7 +2772,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2296,7 +2797,7 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ConvTranspose2d[12]/ret.73
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/LeakyReLU[leakyrelu]/ret.71']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/ret.71']
 output nodes: ['Generator::Generator/Sequential[net]/LeakyReLU[13]/ret.75']
 op type: nndct_conv_transpose_2d
 outputs shape: [4, 256, 256, 64]
@@ -2320,7 +2821,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2340,7 +2841,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2384,7 +2885,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2404,7 +2905,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2454,13 +2955,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2480,7 +2981,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2524,13 +3025,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2550,7 +3051,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2600,13 +3101,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2626,7 +3127,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2652,7 +3153,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[14]/ret.83
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[2]/ret.81', 'Generator::Generator/Sequential[net]/LeakyReLU[13]/ret.75']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/LeakyReLU[leakyrelu]/ret.85']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/ret.85']
 op type: nndct_elemwise_add
 outputs shape: [4, 256, 256, 64]
 op attributes:
@@ -2660,13 +3161,13 @@ assigned device: dpu
 source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2686,7 +3187,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2710,31 +3211,29 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(194): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[14]/LeakyReLU[leakyrelu]/ret.85
+node name: Generator::Generator/Sequential[net]/ResBlock[14]/ret.85
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/ret.83']
 output nodes: ['Generator::Generator/Sequential[net]/Conv2d[15]/ret.87']
-op type: nndct_leaky_relu
+op type: nndct_relu
 outputs shape: [4, 256, 256, 64]
 op attributes:
-  alpha: 0.1015625
-assigned device: cpu
-hardware constraints: nndct_leaky_relu can't be assigned to DPU.
+assigned device: dpu
 source range:
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1632): leaky_relu
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1457): relu
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/overrides.py(1534): handle_torch_function
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1628): leaky_relu
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(775): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1453): relu
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(102): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/3888187462.py(13): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1194): _call_impl
+/tmp/ipykernel_9656/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2754,7 +3253,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2779,8 +3278,8 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/Conv2d[15]/ret.87
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/LeakyReLU[leakyrelu]/ret.85']
-output nodes: ['Generator::Generator/Sequential[net]/Tanh[16]/ret']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/ret.85']
+output nodes: ['Generator::Generator/Sequential[net]/Hardsigmoid[16]/ret.89']
 op type: nndct_conv2d
 outputs shape: [4, 256, 256, 1]
 op attributes:
@@ -2804,7 +3303,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2824,7 +3323,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
@@ -2848,24 +3347,26 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(194): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/Tanh[16]/ret
+node name: Generator::Generator/Sequential[net]/Hardsigmoid[16]/ret.89
 input nodes: ['Generator::Generator/Sequential[net]/Conv2d[15]/ret.87']
-output nodes: ['Generator::return_0']
-op type: nndct_tanh
+output nodes: ['Generator::Generator/ret.91']
+op type: nndct_hsigmoid
 outputs shape: [4, 256, 256, 1]
 op attributes:
-assigned device: cpu
-hardware constraints: nndct_tanh can't be assigned to DPU.
+assigned device: dpu
 source range:
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1990): hardsigmoid
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(358): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/overrides.py(1534): handle_torch_function
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/functional.py(1987): hardsigmoid
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/activation.py(333): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/container.py(204): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
-/tmp/ipykernel_8239/4152959341.py(58): forward
+/tmp/ipykernel_9656/2619939057.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
@@ -2885,7 +3386,116 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
-/tmp/ipykernel_8239/1970892623.py(1): <module>
+/tmp/ipykernel_9656/1970892623.py(1): <module>
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/async_helpers.py(129): _pseudo_sync_runner
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3064): _run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3009): run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/zmqshell.py(549): run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/ipkernel.py(426): do_execute
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(758): execute_request
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(418): dispatch_shell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(513): process_one
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(524): dispatch_queue
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/events.py(81): _run
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/base_events.py(1859): _run_once
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/base_events.py(570): run_forever
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/tornado/platform/asyncio.py(195): start
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelapp.py(737): start
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/traitlets/config/application.py(1053): launch_instance
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel_launcher.py(17): <module>
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(87): _run_code
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(194): _run_module_as_main
+
+================================================================================================================================================================
+node name: Generator::Generator/ret.91
+input nodes: ['Generator::Generator/Sequential[net]/Hardsigmoid[16]/ret.89', 'Generator::2687']
+output nodes: ['Generator::Generator/ret']
+op type: nndct_elemwise_mul
+outputs shape: [4, 256, 256, 1]
+op attributes:
+assigned device: dpu
+source range:
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
+/tmp/ipykernel_9656/2619939057.py(45): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(118): wrapper
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(127): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1194): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(1184): _get_trace_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/utils/jit_utils.py(403): trace_and_get_graph_from_model
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(130): _trace_graph_from_model
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(75): _get_fw_graph_from_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(104): build_torch_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/parser.py(78): __call__
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/qproc/utils.py(97): parse_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/qproc/utils.py(248): prepare_quantizable_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
+/tmp/ipykernel_9656/1970892623.py(1): <module>
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/async_helpers.py(129): _pseudo_sync_runner
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3064): _run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3009): run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/zmqshell.py(549): run_cell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/ipkernel.py(426): do_execute
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(758): execute_request
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(418): dispatch_shell
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(513): process_one
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelbase.py(524): dispatch_queue
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/events.py(81): _run
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/base_events.py(1859): _run_once
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/asyncio/base_events.py(570): run_forever
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/tornado/platform/asyncio.py(195): start
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel/kernelapp.py(737): start
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/traitlets/config/application.py(1053): launch_instance
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/ipykernel_launcher.py(17): <module>
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(87): _run_code
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/runpy.py(194): _run_module_as_main
+
+================================================================================================================================================================
+node name: Generator::Generator/ret
+input nodes: ['Generator::Generator/ret.91', 'Generator::2689']
+output nodes: ['Generator::return_0']
+op type: nndct_elementwise_sub
+outputs shape: [4, 256, 256, 1]
+op attributes:
+assigned device: cpu
+hardware constraints: xir::Op{name = Generator__Generator_ret, type = eltwise-fix} has been assigned to CPU: [DPUCZDX8G_ISA1_B4096 does not support eltwise SUB].
+source range:
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/_tensor.py(1279): __torch_function__
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/override_torch_function.py(52): __torch_function__
+/tmp/ipykernel_9656/2619939057.py(45): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/rich_in_out_helper.py(202): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1182): _slow_forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1212): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(118): wrapper
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(127): forward
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py(1194): _call_impl
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/torch/jit/_trace.py(1184): _get_trace_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/utils/jit_utils.py(403): trace_and_get_graph_from_model
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(130): _trace_graph_from_model
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(75): _get_fw_graph_from_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/trace_helper.py(104): build_torch_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/parse/parser.py(78): __call__
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/qproc/utils.py(97): parse_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/qproc/utils.py(248): prepare_quantizable_module
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/utils.py(26): prepare_deployable_graph
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/hardware_v3/inspector.py(52): inspect
+/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/pytorch_nndct/apis.py(248): inspect
+/tmp/ipykernel_9656/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3508): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3448): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.8/site-packages/IPython/core/interactiveshell.py(3269): run_cell_async

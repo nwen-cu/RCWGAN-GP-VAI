@@ -1,4 +1,12 @@
 digraph Generator {
+	2687 [label="type:nndct_const
+name:Generator::2687
+assigned device:dpu
+out shape:[[4, 256, 256, 1]]" color=blue]
+	2689 [label="type:nndct_const
+name:Generator::2689
+assigned device:cpu
+out shape:[[4, 256, 256, 1]]" color=red]
 	input_0 [label="type:nndct_input
 name:Generator::input_0
 assigned device:user
@@ -51,10 +59,10 @@ out shape:[[4, 16, 16, 64]]" color=blue]
 name:Generator::Generator/Sequential[net]/ResBlock[2]/ret.27
 assigned device:dpu
 out shape:[[4, 16, 16, 64]]" color=blue]
-	"Generator/Sequential[net]/ResBlock[2]/LeakyReLU[leakyrelu]/ret.29" [label="type:nndct_leaky_relu
-name:Generator::Generator/Sequential[net]/ResBlock[2]/LeakyReLU[leakyrelu]/ret.29
-assigned device:cpu
-out shape:[[4, 16, 16, 64]]" color=red]
+	"Generator/Sequential[net]/ResBlock[2]/ret.29" [label="type:nndct_relu
+name:Generator::Generator/Sequential[net]/ResBlock[2]/ret.29
+assigned device:dpu
+out shape:[[4, 16, 16, 64]]" color=blue]
 	"Generator/Sequential[net]/ConvTranspose2d[3]/ret.31" [label="type:nndct_conv_transpose_2d
 name:Generator::Generator/Sequential[net]/ConvTranspose2d[3]/ret.31
 assigned device:dpu
@@ -79,10 +87,10 @@ out shape:[[4, 32, 32, 128]]" color=blue]
 name:Generator::Generator/Sequential[net]/ResBlock[5]/ret.41
 assigned device:dpu
 out shape:[[4, 32, 32, 128]]" color=blue]
-	"Generator/Sequential[net]/ResBlock[5]/LeakyReLU[leakyrelu]/ret.43" [label="type:nndct_leaky_relu
-name:Generator::Generator/Sequential[net]/ResBlock[5]/LeakyReLU[leakyrelu]/ret.43
-assigned device:cpu
-out shape:[[4, 32, 32, 128]]" color=red]
+	"Generator/Sequential[net]/ResBlock[5]/ret.43" [label="type:nndct_relu
+name:Generator::Generator/Sequential[net]/ResBlock[5]/ret.43
+assigned device:dpu
+out shape:[[4, 32, 32, 128]]" color=blue]
 	"Generator/Sequential[net]/ConvTranspose2d[6]/ret.45" [label="type:nndct_conv_transpose_2d
 name:Generator::Generator/Sequential[net]/ConvTranspose2d[6]/ret.45
 assigned device:dpu
@@ -107,10 +115,10 @@ out shape:[[4, 64, 64, 256]]" color=blue]
 name:Generator::Generator/Sequential[net]/ResBlock[8]/ret.55
 assigned device:dpu
 out shape:[[4, 64, 64, 256]]" color=blue]
-	"Generator/Sequential[net]/ResBlock[8]/LeakyReLU[leakyrelu]/ret.57" [label="type:nndct_leaky_relu
-name:Generator::Generator/Sequential[net]/ResBlock[8]/LeakyReLU[leakyrelu]/ret.57
-assigned device:cpu
-out shape:[[4, 64, 64, 256]]" color=red]
+	"Generator/Sequential[net]/ResBlock[8]/ret.57" [label="type:nndct_relu
+name:Generator::Generator/Sequential[net]/ResBlock[8]/ret.57
+assigned device:dpu
+out shape:[[4, 64, 64, 256]]" color=blue]
 	"Generator/Sequential[net]/ConvTranspose2d[9]/ret.59" [label="type:nndct_conv_transpose_2d
 name:Generator::Generator/Sequential[net]/ConvTranspose2d[9]/ret.59
 assigned device:dpu
@@ -135,10 +143,10 @@ out shape:[[4, 128, 128, 128]]" color=blue]
 name:Generator::Generator/Sequential[net]/ResBlock[11]/ret.69
 assigned device:dpu
 out shape:[[4, 128, 128, 128]]" color=blue]
-	"Generator/Sequential[net]/ResBlock[11]/LeakyReLU[leakyrelu]/ret.71" [label="type:nndct_leaky_relu
-name:Generator::Generator/Sequential[net]/ResBlock[11]/LeakyReLU[leakyrelu]/ret.71
-assigned device:cpu
-out shape:[[4, 128, 128, 128]]" color=red]
+	"Generator/Sequential[net]/ResBlock[11]/ret.71" [label="type:nndct_relu
+name:Generator::Generator/Sequential[net]/ResBlock[11]/ret.71
+assigned device:dpu
+out shape:[[4, 128, 128, 128]]" color=blue]
 	"Generator/Sequential[net]/ConvTranspose2d[12]/ret.73" [label="type:nndct_conv_transpose_2d
 name:Generator::Generator/Sequential[net]/ConvTranspose2d[12]/ret.73
 assigned device:dpu
@@ -163,22 +171,32 @@ out shape:[[4, 256, 256, 64]]" color=blue]
 name:Generator::Generator/Sequential[net]/ResBlock[14]/ret.83
 assigned device:dpu
 out shape:[[4, 256, 256, 64]]" color=blue]
-	"Generator/Sequential[net]/ResBlock[14]/LeakyReLU[leakyrelu]/ret.85" [label="type:nndct_leaky_relu
-name:Generator::Generator/Sequential[net]/ResBlock[14]/LeakyReLU[leakyrelu]/ret.85
-assigned device:cpu
-out shape:[[4, 256, 256, 64]]" color=red]
+	"Generator/Sequential[net]/ResBlock[14]/ret.85" [label="type:nndct_relu
+name:Generator::Generator/Sequential[net]/ResBlock[14]/ret.85
+assigned device:dpu
+out shape:[[4, 256, 256, 64]]" color=blue]
 	"Generator/Sequential[net]/Conv2d[15]/ret.87" [label="type:nndct_conv2d
 name:Generator::Generator/Sequential[net]/Conv2d[15]/ret.87
 assigned device:dpu
 out shape:[[4, 256, 256, 1]]" color=blue]
-	"Generator/Sequential[net]/Tanh[16]/ret" [label="type:nndct_tanh
-name:Generator::Generator/Sequential[net]/Tanh[16]/ret
+	"Generator/Sequential[net]/Hardsigmoid[16]/ret.89" [label="type:nndct_hsigmoid
+name:Generator::Generator/Sequential[net]/Hardsigmoid[16]/ret.89
+assigned device:dpu
+out shape:[[4, 256, 256, 1]]" color=blue]
+	"Generator/ret.91" [label="type:nndct_elemwise_mul
+name:Generator::Generator/ret.91
+assigned device:dpu
+out shape:[[4, 256, 256, 1]]" color=blue]
+	"Generator/ret" [label="type:nndct_elementwise_sub
+name:Generator::Generator/ret
 assigned device:cpu
 out shape:[[4, 256, 256, 1]]" color=red]
 	return_0 [label="type:nndct_return
 name:Generator::return_0
 assigned device:user
 out shape:[]" color=black]
+	2687 -> "Generator/ret.91"
+	2689 -> "Generator/ret"
 	input_0 -> "Generator/Linear[net_noise]/ret.5"
 	input_1 -> "Generator/Linear[net_label]/ret.9"
 	"Generator/Linear[net_noise]/ret.5" -> "Generator/ret.7"
@@ -192,40 +210,42 @@ out shape:[]" color=black]
 	"Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[0]/ret.21" -> "Generator/Sequential[net]/ResBlock[2]/Sequential[block]/LeakyReLU[1]/ret.23"
 	"Generator/Sequential[net]/ResBlock[2]/Sequential[block]/LeakyReLU[1]/ret.23" -> "Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[2]/ret.25"
 	"Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[2]/ret.25" -> "Generator/Sequential[net]/ResBlock[2]/ret.27"
-	"Generator/Sequential[net]/ResBlock[2]/ret.27" -> "Generator/Sequential[net]/ResBlock[2]/LeakyReLU[leakyrelu]/ret.29"
-	"Generator/Sequential[net]/ResBlock[2]/LeakyReLU[leakyrelu]/ret.29" -> "Generator/Sequential[net]/ConvTranspose2d[3]/ret.31"
+	"Generator/Sequential[net]/ResBlock[2]/ret.27" -> "Generator/Sequential[net]/ResBlock[2]/ret.29"
+	"Generator/Sequential[net]/ResBlock[2]/ret.29" -> "Generator/Sequential[net]/ConvTranspose2d[3]/ret.31"
 	"Generator/Sequential[net]/ConvTranspose2d[3]/ret.31" -> "Generator/Sequential[net]/LeakyReLU[4]/ret.33"
 	"Generator/Sequential[net]/LeakyReLU[4]/ret.33" -> "Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[0]/ret.35"
 	"Generator/Sequential[net]/LeakyReLU[4]/ret.33" -> "Generator/Sequential[net]/ResBlock[5]/ret.41"
 	"Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[0]/ret.35" -> "Generator/Sequential[net]/ResBlock[5]/Sequential[block]/LeakyReLU[1]/ret.37"
 	"Generator/Sequential[net]/ResBlock[5]/Sequential[block]/LeakyReLU[1]/ret.37" -> "Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[2]/ret.39"
 	"Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[2]/ret.39" -> "Generator/Sequential[net]/ResBlock[5]/ret.41"
-	"Generator/Sequential[net]/ResBlock[5]/ret.41" -> "Generator/Sequential[net]/ResBlock[5]/LeakyReLU[leakyrelu]/ret.43"
-	"Generator/Sequential[net]/ResBlock[5]/LeakyReLU[leakyrelu]/ret.43" -> "Generator/Sequential[net]/ConvTranspose2d[6]/ret.45"
+	"Generator/Sequential[net]/ResBlock[5]/ret.41" -> "Generator/Sequential[net]/ResBlock[5]/ret.43"
+	"Generator/Sequential[net]/ResBlock[5]/ret.43" -> "Generator/Sequential[net]/ConvTranspose2d[6]/ret.45"
 	"Generator/Sequential[net]/ConvTranspose2d[6]/ret.45" -> "Generator/Sequential[net]/LeakyReLU[7]/ret.47"
 	"Generator/Sequential[net]/LeakyReLU[7]/ret.47" -> "Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[0]/ret.49"
 	"Generator/Sequential[net]/LeakyReLU[7]/ret.47" -> "Generator/Sequential[net]/ResBlock[8]/ret.55"
 	"Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[0]/ret.49" -> "Generator/Sequential[net]/ResBlock[8]/Sequential[block]/LeakyReLU[1]/ret.51"
 	"Generator/Sequential[net]/ResBlock[8]/Sequential[block]/LeakyReLU[1]/ret.51" -> "Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[2]/ret.53"
 	"Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[2]/ret.53" -> "Generator/Sequential[net]/ResBlock[8]/ret.55"
-	"Generator/Sequential[net]/ResBlock[8]/ret.55" -> "Generator/Sequential[net]/ResBlock[8]/LeakyReLU[leakyrelu]/ret.57"
-	"Generator/Sequential[net]/ResBlock[8]/LeakyReLU[leakyrelu]/ret.57" -> "Generator/Sequential[net]/ConvTranspose2d[9]/ret.59"
+	"Generator/Sequential[net]/ResBlock[8]/ret.55" -> "Generator/Sequential[net]/ResBlock[8]/ret.57"
+	"Generator/Sequential[net]/ResBlock[8]/ret.57" -> "Generator/Sequential[net]/ConvTranspose2d[9]/ret.59"
 	"Generator/Sequential[net]/ConvTranspose2d[9]/ret.59" -> "Generator/Sequential[net]/LeakyReLU[10]/ret.61"
 	"Generator/Sequential[net]/LeakyReLU[10]/ret.61" -> "Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[0]/ret.63"
 	"Generator/Sequential[net]/LeakyReLU[10]/ret.61" -> "Generator/Sequential[net]/ResBlock[11]/ret.69"
 	"Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[0]/ret.63" -> "Generator/Sequential[net]/ResBlock[11]/Sequential[block]/LeakyReLU[1]/ret.65"
 	"Generator/Sequential[net]/ResBlock[11]/Sequential[block]/LeakyReLU[1]/ret.65" -> "Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[2]/ret.67"
 	"Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[2]/ret.67" -> "Generator/Sequential[net]/ResBlock[11]/ret.69"
-	"Generator/Sequential[net]/ResBlock[11]/ret.69" -> "Generator/Sequential[net]/ResBlock[11]/LeakyReLU[leakyrelu]/ret.71"
-	"Generator/Sequential[net]/ResBlock[11]/LeakyReLU[leakyrelu]/ret.71" -> "Generator/Sequential[net]/ConvTranspose2d[12]/ret.73"
+	"Generator/Sequential[net]/ResBlock[11]/ret.69" -> "Generator/Sequential[net]/ResBlock[11]/ret.71"
+	"Generator/Sequential[net]/ResBlock[11]/ret.71" -> "Generator/Sequential[net]/ConvTranspose2d[12]/ret.73"
 	"Generator/Sequential[net]/ConvTranspose2d[12]/ret.73" -> "Generator/Sequential[net]/LeakyReLU[13]/ret.75"
 	"Generator/Sequential[net]/LeakyReLU[13]/ret.75" -> "Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[0]/ret.77"
 	"Generator/Sequential[net]/LeakyReLU[13]/ret.75" -> "Generator/Sequential[net]/ResBlock[14]/ret.83"
 	"Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[0]/ret.77" -> "Generator/Sequential[net]/ResBlock[14]/Sequential[block]/LeakyReLU[1]/ret.79"
 	"Generator/Sequential[net]/ResBlock[14]/Sequential[block]/LeakyReLU[1]/ret.79" -> "Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[2]/ret.81"
 	"Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[2]/ret.81" -> "Generator/Sequential[net]/ResBlock[14]/ret.83"
-	"Generator/Sequential[net]/ResBlock[14]/ret.83" -> "Generator/Sequential[net]/ResBlock[14]/LeakyReLU[leakyrelu]/ret.85"
-	"Generator/Sequential[net]/ResBlock[14]/LeakyReLU[leakyrelu]/ret.85" -> "Generator/Sequential[net]/Conv2d[15]/ret.87"
-	"Generator/Sequential[net]/Conv2d[15]/ret.87" -> "Generator/Sequential[net]/Tanh[16]/ret"
-	"Generator/Sequential[net]/Tanh[16]/ret" -> return_0
+	"Generator/Sequential[net]/ResBlock[14]/ret.83" -> "Generator/Sequential[net]/ResBlock[14]/ret.85"
+	"Generator/Sequential[net]/ResBlock[14]/ret.85" -> "Generator/Sequential[net]/Conv2d[15]/ret.87"
+	"Generator/Sequential[net]/Conv2d[15]/ret.87" -> "Generator/Sequential[net]/Hardsigmoid[16]/ret.89"
+	"Generator/Sequential[net]/Hardsigmoid[16]/ret.89" -> "Generator/ret.91"
+	"Generator/ret.91" -> "Generator/ret"
+	"Generator/ret" -> return_0
 }
