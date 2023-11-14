@@ -1,0 +1,45 @@
+(1, 100): Generator::input_0
+(1, 4): Generator::input_1
+(1, 6400): Generator::Generator/Linear[net_noise]/1645
+(1, 8, 8, 100): Generator::Generator/1651
+(1, 1024): Generator::Generator/Linear[net_label]/1652
+(1, 8, 8, 16): Generator::Generator/1658
+(1, 8, 8, 116): Generator::Generator/1661
+(1, 17, 17, 64): Generator::Generator/Sequential[net]/ConvTranspose2d[0]/input.5
+(1, 17, 17, 64): Generator::Generator/Sequential[net]/LeakyReLU[1]/input.7
+(1, 17, 17, 64): Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[0]/input.9
+(1, 17, 17, 64): Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/LeakyReLU[1]/input.11
+(1, 17, 17, 64): Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[2]/1728
+(1, 17, 17, 64): Generator::Generator/Sequential[net]/ResBlock[2]/input.13
+(1, 17, 17, 64): Generator::Generator/Sequential[net]/ResBlock[2]/1732
+(1, 33, 33, 128): Generator::Generator/Sequential[net]/ConvTranspose2d[3]/input.15
+(1, 33, 33, 128): Generator::Generator/Sequential[net]/LeakyReLU[4]/input.17
+(1, 33, 33, 128): Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[0]/input.19
+(1, 33, 33, 128): Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/LeakyReLU[1]/input.21
+(1, 33, 33, 128): Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[2]/1793
+(1, 33, 33, 128): Generator::Generator/Sequential[net]/ResBlock[5]/input.23
+(1, 33, 33, 128): Generator::Generator/Sequential[net]/ResBlock[5]/1797
+(1, 65, 65, 256): Generator::Generator/Sequential[net]/ConvTranspose2d[6]/input.25
+(1, 65, 65, 256): Generator::Generator/Sequential[net]/LeakyReLU[7]/input.27
+(1, 65, 65, 256): Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[0]/input.29
+(1, 65, 65, 256): Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/LeakyReLU[1]/input.31
+(1, 65, 65, 256): Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[2]/1858
+(1, 65, 65, 256): Generator::Generator/Sequential[net]/ResBlock[8]/input.33
+(1, 65, 65, 256): Generator::Generator/Sequential[net]/ResBlock[8]/1862
+(1, 129, 129, 128): Generator::Generator/Sequential[net]/ConvTranspose2d[9]/input.35
+(1, 129, 129, 128): Generator::Generator/Sequential[net]/LeakyReLU[10]/input.37
+(1, 129, 129, 128): Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[0]/input.39
+(1, 129, 129, 128): Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/LeakyReLU[1]/input.41
+(1, 129, 129, 128): Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[2]/1923
+(1, 129, 129, 128): Generator::Generator/Sequential[net]/ResBlock[11]/input.43
+(1, 129, 129, 128): Generator::Generator/Sequential[net]/ResBlock[11]/1927
+(1, 257, 257, 64): Generator::Generator/Sequential[net]/ConvTranspose2d[12]/input.45
+(1, 257, 257, 64): Generator::Generator/Sequential[net]/LeakyReLU[13]/input.47
+(1, 257, 257, 64): Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[0]/input.49
+(1, 257, 257, 64): Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/LeakyReLU[1]/input.51
+(1, 257, 257, 64): Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[2]/1988
+(1, 257, 257, 64): Generator::Generator/Sequential[net]/ResBlock[14]/input.53
+(1, 257, 257, 64): Generator::Generator/Sequential[net]/ResBlock[14]/input.55
+(1, 257, 257, 1): Generator::Generator/Sequential[net]/Conv2d[15]/input
+(1, 257, 257, 1): Generator::Generator/Sequential[net]/Hardsigmoid[16]/2012
+(1, 256, 256, 1): Generator::Generator/2017
