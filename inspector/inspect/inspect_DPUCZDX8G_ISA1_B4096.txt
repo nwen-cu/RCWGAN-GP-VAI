@@ -169,16 +169,13 @@ alu_engine {
 ================================================================================================================================================================
 inspection summary:
 ================================================================================================================================================================
-The operators assigned to the CPU are as follows:
-node name                  op Type        hardware constraints
--------------------------  -------------  ----------------------------------
-Generator::Generator/2017  strided_slice  DPU does not support strided_slice
+All the operators are assigned to the DPU.
 ================================================================================================================================================================
 graph name: Generator
 ================================================================================================================================================================
 node name: Generator::input_0
 input nodes: []
-output nodes: ['Generator::Generator/Linear[net_noise]/1645']
+output nodes: ['Generator::Generator/Linear[net_noise]/1625']
 op type: input
 outputs shape: [(1, 100)]
 op attributes:
@@ -186,15 +183,15 @@ assigned device: dpu
 ================================================================================================================================================================
 node name: Generator::input_1
 input nodes: []
-output nodes: ['Generator::Generator/Linear[net_label]/1652']
+output nodes: ['Generator::Generator/Linear[net_label]/1632']
 op type: input
 outputs shape: [(1, 4)]
 op attributes:
 assigned device: dpu
 ================================================================================================================================================================
-node name: Generator::Generator/Linear[net_noise]/1645
+node name: Generator::Generator/Linear[net_noise]/1625
 input nodes: ['Generator::input_0']
-output nodes: ['Generator::Generator/1651']
+output nodes: ['Generator::Generator/1631']
 op type: dense
 outputs shape: [(1, 6400)]
 op attributes:
@@ -207,7 +204,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/linear.py(103): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(44): forward
+/tmp/ipykernel_3088/3206344204.py(44): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -223,7 +220,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -247,16 +244,16 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/1651
-input nodes: ['Generator::Generator/Linear[net_noise]/1645']
-output nodes: ['Generator::Generator/1661']
+node name: Generator::Generator/1631
+input nodes: ['Generator::Generator/Linear[net_noise]/1625']
+output nodes: ['Generator::Generator/1641']
 op type: reshape
 outputs shape: [(1, 8, 8, 100)]
 op attributes:
   shape: [1, 8, 8, 100]
 assigned device: dpu
 source range:
-/tmp/ipykernel_2772/3497382297.py(44): forward
+/tmp/ipykernel_3088/3206344204.py(44): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -272,7 +269,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -296,9 +293,9 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Linear[net_label]/1652
+node name: Generator::Generator/Linear[net_label]/1632
 input nodes: ['Generator::input_1']
-output nodes: ['Generator::Generator/1658']
+output nodes: ['Generator::Generator/1638']
 op type: dense
 outputs shape: [(1, 1024)]
 op attributes:
@@ -311,7 +308,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/linear.py(103): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(45): forward
+/tmp/ipykernel_3088/3206344204.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -327,7 +324,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -351,16 +348,16 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/1658
-input nodes: ['Generator::Generator/Linear[net_label]/1652']
-output nodes: ['Generator::Generator/1661']
+node name: Generator::Generator/1638
+input nodes: ['Generator::Generator/Linear[net_label]/1632']
+output nodes: ['Generator::Generator/1641']
 op type: reshape
 outputs shape: [(1, 8, 8, 16)]
 op attributes:
   shape: [1, 8, 8, 16]
 assigned device: dpu
 source range:
-/tmp/ipykernel_2772/3497382297.py(45): forward
+/tmp/ipykernel_3088/3206344204.py(45): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -376,7 +373,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -400,8 +397,8 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/1661
-input nodes: ['Generator::Generator/1651', 'Generator::Generator/1658']
+node name: Generator::Generator/1641
+input nodes: ['Generator::Generator/1631', 'Generator::Generator/1638']
 output nodes: ['Generator::Generator/Sequential[net]/ConvTranspose2d[0]/input.5']
 op type: concat
 outputs shape: [(1, 8, 8, 116)]
@@ -409,7 +406,7 @@ op attributes:
   axis: 3
 assigned device: dpu
 source range:
-/tmp/ipykernel_2772/3497382297.py(47): forward
+/tmp/ipykernel_3088/3206344204.py(47): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -425,7 +422,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -450,7 +447,7 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ConvTranspose2d[0]/input.5
-input nodes: ['Generator::Generator/1661']
+input nodes: ['Generator::Generator/1641']
 output nodes: ['Generator::Generator/Sequential[net]/LeakyReLU[1]/input.7']
 op type: conv_transpose_2d
 outputs shape: [(1, 17, 17, 64)]
@@ -472,7 +469,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -488,7 +485,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -528,7 +525,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -544,7 +541,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -592,13 +589,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -614,7 +611,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -640,7 +637,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/LeakyReLU[1]/input.11
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[0]/input.9']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[2]/1728']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[2]/1708']
 op type: leaky_relu
 outputs shape: [(1, 17, 17, 64)]
 op attributes:
@@ -654,13 +651,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -676,7 +673,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -700,7 +697,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[2]/1728
+node name: Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[2]/1708
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/LeakyReLU[1]/input.11']
 output nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/input.13']
 op type: conv2d
@@ -724,13 +721,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -746,7 +743,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -771,20 +768,20 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[2]/input.13
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[2]/1728', 'Generator::Generator/Sequential[net]/LeakyReLU[1]/input.7']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/1732']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/Sequential[block]/Conv2d[2]/1708', 'Generator::Generator/Sequential[net]/LeakyReLU[1]/input.7']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/1712']
 op type: elemwise_add
 outputs shape: [(1, 17, 17, 64)]
 op attributes:
 assigned device: dpu
 source range:
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -800,7 +797,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -824,7 +821,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[2]/1732
+node name: Generator::Generator/Sequential[net]/ResBlock[2]/1712
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/input.13']
 output nodes: ['Generator::Generator/Sequential[net]/ConvTranspose2d[3]/input.15']
 op type: relu
@@ -836,13 +833,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/activation.py(98): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1102): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -858,7 +855,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -883,7 +880,7 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ConvTranspose2d[3]/input.15
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/1732']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[2]/1712']
 output nodes: ['Generator::Generator/Sequential[net]/LeakyReLU[4]/input.17']
 op type: conv_transpose_2d
 outputs shape: [(1, 33, 33, 128)]
@@ -905,7 +902,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -921,7 +918,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -961,7 +958,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -977,7 +974,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1025,13 +1022,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1047,7 +1044,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1073,7 +1070,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/LeakyReLU[1]/input.21
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[0]/input.19']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[2]/1793']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[2]/1773']
 op type: leaky_relu
 outputs shape: [(1, 33, 33, 128)]
 op attributes:
@@ -1087,13 +1084,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1109,7 +1106,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1133,7 +1130,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[2]/1793
+node name: Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[2]/1773
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/LeakyReLU[1]/input.21']
 output nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/input.23']
 op type: conv2d
@@ -1157,13 +1154,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1179,7 +1176,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1204,20 +1201,20 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[5]/input.23
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[2]/1793', 'Generator::Generator/Sequential[net]/LeakyReLU[4]/input.17']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/1797']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/Sequential[block]/Conv2d[2]/1773', 'Generator::Generator/Sequential[net]/LeakyReLU[4]/input.17']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/1777']
 op type: elemwise_add
 outputs shape: [(1, 33, 33, 128)]
 op attributes:
 assigned device: dpu
 source range:
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1233,7 +1230,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1257,7 +1254,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[5]/1797
+node name: Generator::Generator/Sequential[net]/ResBlock[5]/1777
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/input.23']
 output nodes: ['Generator::Generator/Sequential[net]/ConvTranspose2d[6]/input.25']
 op type: relu
@@ -1269,13 +1266,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/activation.py(98): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1102): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1291,7 +1288,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1316,7 +1313,7 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ConvTranspose2d[6]/input.25
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/1797']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[5]/1777']
 output nodes: ['Generator::Generator/Sequential[net]/LeakyReLU[7]/input.27']
 op type: conv_transpose_2d
 outputs shape: [(1, 65, 65, 256)]
@@ -1338,7 +1335,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1354,7 +1351,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1394,7 +1391,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1410,7 +1407,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1458,13 +1455,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1480,7 +1477,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1506,7 +1503,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/LeakyReLU[1]/input.31
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[0]/input.29']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[2]/1858']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[2]/1838']
 op type: leaky_relu
 outputs shape: [(1, 65, 65, 256)]
 op attributes:
@@ -1520,13 +1517,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1542,7 +1539,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1566,7 +1563,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[2]/1858
+node name: Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[2]/1838
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/LeakyReLU[1]/input.31']
 output nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/input.33']
 op type: conv2d
@@ -1590,13 +1587,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1612,7 +1609,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1637,20 +1634,20 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[8]/input.33
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[2]/1858', 'Generator::Generator/Sequential[net]/LeakyReLU[7]/input.27']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/1862']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/Sequential[block]/Conv2d[2]/1838', 'Generator::Generator/Sequential[net]/LeakyReLU[7]/input.27']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/1842']
 op type: elemwise_add
 outputs shape: [(1, 65, 65, 256)]
 op attributes:
 assigned device: dpu
 source range:
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1666,7 +1663,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1690,7 +1687,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[8]/1862
+node name: Generator::Generator/Sequential[net]/ResBlock[8]/1842
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/input.33']
 output nodes: ['Generator::Generator/Sequential[net]/ConvTranspose2d[9]/input.35']
 op type: relu
@@ -1702,13 +1699,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/activation.py(98): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1102): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1724,7 +1721,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1749,7 +1746,7 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ConvTranspose2d[9]/input.35
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/1862']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[8]/1842']
 output nodes: ['Generator::Generator/Sequential[net]/LeakyReLU[10]/input.37']
 op type: conv_transpose_2d
 outputs shape: [(1, 129, 129, 128)]
@@ -1771,7 +1768,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1787,7 +1784,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1827,7 +1824,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1843,7 +1840,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1891,13 +1888,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1913,7 +1910,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1939,7 +1936,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/LeakyReLU[1]/input.41
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[0]/input.39']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[2]/1923']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[2]/1903']
 op type: leaky_relu
 outputs shape: [(1, 129, 129, 128)]
 op attributes:
@@ -1953,13 +1950,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -1975,7 +1972,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -1999,7 +1996,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[2]/1923
+node name: Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[2]/1903
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/LeakyReLU[1]/input.41']
 output nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/input.43']
 op type: conv2d
@@ -2023,13 +2020,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2045,7 +2042,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2070,20 +2067,20 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[11]/input.43
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[2]/1923', 'Generator::Generator/Sequential[net]/LeakyReLU[10]/input.37']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/1927']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/Sequential[block]/Conv2d[2]/1903', 'Generator::Generator/Sequential[net]/LeakyReLU[10]/input.37']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/1907']
 op type: elemwise_add
 outputs shape: [(1, 129, 129, 128)]
 op attributes:
 assigned device: dpu
 source range:
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2099,7 +2096,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2123,7 +2120,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[11]/1927
+node name: Generator::Generator/Sequential[net]/ResBlock[11]/1907
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/input.43']
 output nodes: ['Generator::Generator/Sequential[net]/ConvTranspose2d[12]/input.45']
 op type: relu
@@ -2135,13 +2132,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/activation.py(98): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1102): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2157,7 +2154,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2182,7 +2179,7 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ConvTranspose2d[12]/input.45
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/1927']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[11]/1907']
 output nodes: ['Generator::Generator/Sequential[net]/LeakyReLU[13]/input.47']
 op type: conv_transpose_2d
 outputs shape: [(1, 257, 257, 64)]
@@ -2204,7 +2201,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2220,7 +2217,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2260,7 +2257,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2276,7 +2273,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2324,13 +2321,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2346,7 +2343,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2372,7 +2369,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/LeakyReLU[1]/input.51
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[0]/input.49']
-output nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[2]/1988']
+output nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[2]/1968']
 op type: leaky_relu
 outputs shape: [(1, 257, 257, 64)]
 op attributes:
@@ -2386,13 +2383,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2408,7 +2405,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2432,7 +2429,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[2]/1988
+node name: Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[2]/1968
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/LeakyReLU[1]/input.51']
 output nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/input.53']
 op type: conv2d
@@ -2456,13 +2453,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2478,7 +2475,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2503,20 +2500,20 @@ source range:
 
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/ResBlock[14]/input.53
-input nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[2]/1988', 'Generator::Generator/Sequential[net]/LeakyReLU[13]/input.47']
+input nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/Sequential[block]/Conv2d[2]/1968', 'Generator::Generator/Sequential[net]/LeakyReLU[13]/input.47']
 output nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/input.55']
 op type: elemwise_add
 outputs shape: [(1, 257, 257, 64)]
 op attributes:
 assigned device: dpu
 source range:
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2532,7 +2529,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2568,13 +2565,13 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/activation.py(98): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1102): _call_impl
-/tmp/ipykernel_2772/3422522671.py(13): forward
+/tmp/ipykernel_3088/3422522671.py(13): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2590,7 +2587,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2616,7 +2613,7 @@ source range:
 ================================================================================================================================================================
 node name: Generator::Generator/Sequential[net]/Conv2d[15]/input
 input nodes: ['Generator::Generator/Sequential[net]/ResBlock[14]/input.55']
-output nodes: ['Generator::Generator/Sequential[net]/Hardsigmoid[16]/2012']
+output nodes: ['Generator::Generator/Sequential[net]/Hardsigmoid[16]/1992']
 op type: conv2d
 outputs shape: [(1, 257, 257, 1)]
 op attributes:
@@ -2638,7 +2635,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2654,7 +2651,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
@@ -2678,9 +2675,9 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
 
 ================================================================================================================================================================
-node name: Generator::Generator/Sequential[net]/Hardsigmoid[16]/2012
+node name: Generator::Generator/Sequential[net]/Hardsigmoid[16]/1992
 input nodes: ['Generator::Generator/Sequential[net]/Conv2d[15]/input']
-output nodes: ['Generator::Generator/2017']
+output nodes: ['Generator::return_0']
 op type: hsigmoid
 outputs shape: [(1, 257, 257, 1)]
 op attributes:
@@ -2693,7 +2690,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py(141): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/tmp/ipykernel_2772/3497382297.py(50): forward
+/tmp/ipykernel_3088/3206344204.py(50): forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
@@ -2709,64 +2706,7 @@ source range:
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/async_helpers.py(78): _pseudo_sync_runner
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3029): _run_cell
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(2975): run_cell
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/ipykernel/zmqshell.py(528): run_cell
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/ipykernel/ipkernel.py(387): do_execute
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/ipykernel/kernelbase.py(728): execute_request
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/ipykernel/kernelbase.py(404): dispatch_shell
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/ipykernel/kernelbase.py(497): process_one
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/ipykernel/kernelbase.py(508): dispatch_queue
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/asyncio/events.py(88): _run
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/asyncio/base_events.py(1786): _run_once
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/asyncio/base_events.py(541): run_forever
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/tornado/platform/asyncio.py(199): start
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/ipykernel/kernelapp.py(712): start
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/traitlets/config/application.py(976): launch_instance
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/ipykernel_launcher.py(17): <module>
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(85): _run_code
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/runpy.py(193): _run_module_as_main
-
-================================================================================================================================================================
-node name: Generator::Generator/2017
-input nodes: ['Generator::Generator/Sequential[net]/Hardsigmoid[16]/2012']
-output nodes: ['Generator::return_0']
-op type: strided_slice
-outputs shape: [(1, 256, 256, 1)]
-op attributes:
-  begin: [0, 0, 0, 0]
-  end: [2147483647, 256, 256, 2147483647]
-  strides: [1, 1, 1, 1]
-  begin_mask: 15
-  end_mask: 9
-  ellipsis_mask: 0
-  new_axis_mask: 0
-  shrink_axis_mask: 0
-assigned device: cpu
-hardware constraints: DPU does not support strided_slice
-source range:
-/tmp/ipykernel_2772/3497382297.py(50): forward
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1090): _slow_forward
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1120): _call_impl
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(118): wrapper
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(132): forward
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py(1102): _call_impl
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/torch/jit/_trace.py(1166): _get_trace_graph
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/utils/jit_utils.py(392): trace_and_get_graph_from_model
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/parse/trace_helper.py(91): _trace_graph_from_model
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/parse/trace_helper.py(65): build_torch_graph
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/parse/parser.py(71): __call__
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/qproc/utils.py(83): parse_module
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/qproc/utils.py(193): prepare_quantizable_module
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(96): _prepare_deployable_graph
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/hardware/inspector.py(83): inspect
-/opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/pytorch_nndct/apis.py(182): inspect
-/tmp/ipykernel_2772/1970892623.py(1): <module>
+/tmp/ipykernel_3088/1970892623.py(1): <module>
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3552): run_code
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3472): run_ast_nodes
 /opt/vitis_ai/conda/envs/vitis-ai-pytorch/lib/python3.7/site-packages/IPython/core/interactiveshell.py(3257): run_cell_async
